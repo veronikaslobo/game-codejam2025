@@ -15,6 +15,8 @@ class Obstacle:
         screen.blit(self.image, self.rect)  # maps image to rect position
 
 def check_for_collision(player, obstacle):
+    player_left = player.x_axis_position
+    player_right = player.x_axis_position + player.width
 
 
     obstacle_left =
