@@ -2,7 +2,7 @@ import pygame
 import random
 import player
 from obstacle_definition import Obstacle, spawn_obstacle, obs_imgs, LANES
-
+from background import scroll_bg
 
 # initializing environment
 pygame.init()
@@ -47,6 +47,7 @@ while running:
             running = False
 
     # Fill background
+    scroll_bg()
 
     # generate obstacles
     if spawn_timer > 100:

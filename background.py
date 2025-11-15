@@ -14,7 +14,7 @@ targetsize = (SCREEN_WIDTH, SCREEN_HEIGHT)
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Game name")
 
-blabala = pygame.image.load(r"C:\Users\danie\Desktop\game-codejam2025\images\Untitled (Draft)-1.png").convert()
+blabala = pygame.image.load("images/background.png").convert()
 bg = pygame.transform.scale(blabala, targetsize)
 bg_width = bg.get_width()
 bg_height = bg.get_height()
@@ -48,7 +48,7 @@ def scroll_bg():
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     pygame.display.set_caption("Game name")
 
-    blabala = pygame.image.load(r"C:\Users\danie\Desktop\game-codejam2025\images\Untitled (Draft)-1.png").convert()
+    blabala = pygame.image.load("images/background.png").convert()
     bg = pygame.transform.scale(blabala, targetsize)
     bg_width = bg.get_width()
     bg_height = bg.get_height()
