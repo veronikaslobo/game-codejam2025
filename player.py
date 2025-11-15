@@ -61,8 +61,6 @@ class Player:
             self.target_x = self.lane_positions[self.current_lane]
 
     def update(self):
-        """Smooth easing animation"""
-        # Easing function: current + (target - current) * factor
         self.x_axis_position += (self.target_x - self.x_axis_position) * self.slide_speed
 
         if abs(self.target_x - self.x_axis_position) < 0.5:
