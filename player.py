@@ -82,6 +82,10 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
 
+        peng.update()
+        screen.fill((250,250,204))
+        peng.draw(screen)
+        pygame.display.flip()
 
 
 main()
