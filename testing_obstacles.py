@@ -20,9 +20,6 @@ YELLOW = (254, 234, 160)
 # background
 
 
-# obstacles
-
-
 # initialize environment
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 clock = pygame.time.Clock()
@@ -43,7 +40,6 @@ while running:
             running = False
 
     # Fill the background with white
-    screen.fill(BLUE)
 
     # generate obstacles
     # #pygame.draw.circle(screen, PURPLE, (250, 250), 75)
