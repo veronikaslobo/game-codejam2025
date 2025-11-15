@@ -23,8 +23,7 @@ YELLOW =(254,234,160)
 
 # obstacle
 
-
-screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
 
 
 #running the game
