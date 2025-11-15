@@ -46,7 +46,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    # Fill the background with white
+    # Fill background
 
     # generate obstacles
     if spawn_timer > 100:
