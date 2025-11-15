@@ -13,9 +13,9 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Pygame Movement")
 timer = pygame.time.Clock()
 fps = 60
-LEFT_LANE_POSITION = 150
+LEFT_LANE_POSITION = 140
 MIDDLE_LANE_POSITION = 350
-RIGHT_LANE_POSITION = 550
+RIGHT_LANE_POSITION = 600
 
 # Class of our car (can be smt else, decide later)
 class Player:
@@ -28,7 +28,7 @@ class Player:
         self.lane_positions = [LEFT_LANE_POSITION, MIDDLE_LANE_POSITION, RIGHT_LANE_POSITION]
         self.x_axis_position = self.lane_positions[self.current_lane]
         self.target_x = self.x_axis_position
-        self.slide_speed = 0.007 # pixels/movement
+        self.slide_speed = 0.07 # pixels/movement
         self.is_moving = False
 
         image_path = "player/penguin_image1.png"
@@ -73,34 +73,47 @@ class Player:
 
 
 
-# main game
-def main():
+def player_move(penguin):
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            return True
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_RIGHT:
+                penguin.move_right()
+            if event.key == pygame.K_LEFT:
+                penguin.move_left()
+    return False
 
-    peng = Player()
-    game_over = False
+
+
+# main game
+#def main():
+#
+ #   peng = Player()
+  #  game_over = False
 
 # closes the game if the user presses on X
-    run = True
+   # run = True
 
 
-    while run:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                run = False
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_RIGHT:
-                    peng.move_right()
-                if event.key == pygame.K_LEFT:
-                    peng.move_left()
+#    while run:
+ #       for event in pygame.event.get():
+  #          if event.type == pygame.QUIT:
+   #             run = False
+    #        if event.type == pygame.KEYDOWN:
+     #           if event.key == pygame.K_RIGHT:
+      #              peng.move_right()
+       #         if event.key == pygame.K_LEFT:
+        #            peng.move_left()
 
-        peng.update()
-        screen.fill((250,250,204))
-        peng.draw(screen)
-        pygame.display.flip()
+#        peng.update()
+#        screen.fill((250,250,204))
+#        peng.draw(screen)
+#        pygame.display.flip()
 
 
-main()
+#main()
 
-pygame.quit()
+#pygame.quit()
 
 

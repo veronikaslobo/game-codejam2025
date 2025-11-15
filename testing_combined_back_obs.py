@@ -1,6 +1,6 @@
 import pygame
 import random
-import player
+from player import Player,player_move
 from combined_game_environment import Obstacle, spawn_obstacle, obs_imgs, LANES, scroll_bg, get_background
 
 # initializing environment
@@ -27,6 +27,7 @@ spawn_timer = 0
 GAME_SPEED = 5
 bg = get_background()
 scroll = 0
+penguin = Player()
 
 
 #running the game
@@ -44,8 +45,13 @@ while running:
     # Fill background
     scroll = scroll_bg(screen, bg, scroll, GAME_SPEED)
 
+    # adding the penguin movement
+    player_move(penguin)
+    penguin.update()
+    penguin.draw(screen)
+
     # generate obstacles
-    if spawn_timer > 100:
+    if spawn_timer > 90:
         obstacles.append(spawn_obstacle(GAME_SPEED))
         spawn_timer = 0
         # Update and draw obstacles
