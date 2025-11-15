@@ -33,8 +33,7 @@ def check_for_collision(player, obstacle):
 
 
     if (player_right > obstacle_left and player_left < obstacle_right and player_bottom > obstacle_top and player_top < obstacle_bottom):
-        return True
-    return False
+        global.collide = + 1
 
     # updates the collide variable
     collide =+ 1
