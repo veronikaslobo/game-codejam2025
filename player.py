@@ -82,6 +82,11 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RIGHT:
+                    peng.move_right()
+                if event.key == pygame.K_LEFT:
+                    peng.move_left()
 
         peng.update()
         screen.fill((250,250,204))
