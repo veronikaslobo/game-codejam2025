@@ -15,6 +15,7 @@ def main():
 
 # closes the game if the user presses on X
     run = True
+    screen.fill('black')
     while run:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
