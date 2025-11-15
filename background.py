@@ -27,7 +27,7 @@ while run:
     clock.tick(FPS)
 
     # scroll is your vertical offset
-    scroll = (scroll + 5) % bg_height
+    scroll = (scroll + GAME_SPEED) % bg_height
 
     # draw two vertical tiles
     screen.blit(bg, (0, scroll - bg_height))

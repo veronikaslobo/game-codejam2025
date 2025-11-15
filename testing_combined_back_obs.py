@@ -1,8 +1,7 @@
 import pygame
 import random
 import player
-from obstacle_definition import Obstacle, spawn_obstacle, obs_imgs, LANES
-from background import scroll_bg
+from combined_game_environment import Obstacle, spawn_obstacle, obs_imgs, LANES, scroll_bg, get_background
 
 # initializing environment
 pygame.init()
@@ -10,8 +9,7 @@ pygame.init()
 # CONSTANTS
 SCREEN_WIDTH, SCREEN_HEIGHT = 800, 600
 FPS = 60
-OBSTACLE_WIDTH, OBSTACLE_HEIGHT = 50,50
-PLAYER_WIDTH, PLAYER_HEIGHT = 50,50
+
 
 # COLORS
 WHITE = (255,255,255)
@@ -20,11 +18,6 @@ BLUE = (189,228,255)
 PURPLE =(207,169,245)
 YELLOW =(254,234,160)
 
-# background
-
-
-# obstacles
-
 
 # initialize environment
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -32,6 +25,8 @@ clock = pygame.time.Clock()
 obstacles = []
 spawn_timer = 0
 GAME_SPEED = 5
+bg = get_background()
+scroll = 0
 
 
 #running the game
@@ -47,11 +42,11 @@ while running:
             running = False
 
     # Fill background
-    scroll_bg()
+    scroll = scroll_bg(screen, bg, scroll, GAME_SPEED)
 
     # generate obstacles
     if spawn_timer > 100:
-        obstacles.append(spawn_obstacle())
+        obstacles.append(spawn_obstacle(GAME_SPEED))
         spawn_timer = 0
         # Update and draw obstacles
     for obs in obstacles:

@@ -4,7 +4,6 @@ import random
 # initializing and constants
 pygame.init()
 LANES=[200, 400,300]
-game_speed= 5
 TARGET_SIZE =(100,100)
 screen = pygame.display.set_mode((800, 600))
 
@@ -36,6 +35,6 @@ def spawn_obstacle():
     image = random.choice(obs_imgs)
     x = random.choice(LANES) #NEED TO DEFINE X POSITIONS
     y = -image.get_height()
-    obstacle = Obstacle(image, x, y, game_speed)
+    obstacle = Obstacle(image, x, y, GAME_SPEED)
     return obstacle
 
