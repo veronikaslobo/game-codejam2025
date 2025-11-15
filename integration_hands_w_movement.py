@@ -98,7 +98,7 @@ def main():
 
    while run:
        for event in pygame.event.get():
-           if event.type == pygame.QUIT:
+            if event.type == pygame.QUIT:
                run = False
             if event.key == pygame.K_RIGHT:
                peng.move_right()
