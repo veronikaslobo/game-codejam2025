@@ -2,6 +2,7 @@ import pygame
 import numpy
 import math
 import os
+# import mediapipe as mp
 
 pygame.init()
 
