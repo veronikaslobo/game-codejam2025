@@ -13,6 +13,10 @@ from loosing_screen import check_for_collision
 pygame.init()
 clock = pygame.time.Clock()
 
+game_start_time = 0
+game_active = False
+survival_time = 0
+
 # CONSTANTS
 SCREEN_WIDTH, SCREEN_HEIGHT = 800, 600
 FPS = 60
