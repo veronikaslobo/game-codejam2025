@@ -226,7 +226,6 @@ def main():
        peng.draw(screen)
        pygame.display.flip()
 
-
 main()
 
 # harini's part
