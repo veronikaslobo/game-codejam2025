@@ -14,7 +14,6 @@ pygame.init()
 clock = pygame.time.Clock()
 
 game_start_time = 0
-game_active = False
 survival_time = 0
 
 # CONSTANTS
