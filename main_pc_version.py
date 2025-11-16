@@ -129,8 +129,8 @@ def instructions():
         print_text("INSTRUCTIONS", font_lives_big, (51, 153, 255), 230, 15)
         print_text(" -Movement-", font_big, (51, 153, 255), 50, 100)
         print_text("1. Move left or right using hand gestures only.", font_inst, (255, 255, 255), 50, 150)
-        print_text("2. To move one lane to the left point your index finger to the left and stop.", font_inst, (255, 255, 255), 50, 200)
-        print_text("3. To move more than one lane keep pointing.", font_inst, (255, 255, 255), 50, 250)
+        print_text("2. To move 1 lane to the left, point your index finger to the left with your thumb up.", font_inst, (255, 255, 255), 50, 200)
+        print_text("3. To move more than 1 lane keep pointing.", font_inst, (255, 255, 255), 50, 250)
         print_text("4. The same motion applies to move to the right.", font_inst, (255, 255, 255), 50, 300)
         print_text(" -Game Rules-", font_big, (51, 153, 255), 50, 350)
         print_text("1. You have 3 lives in the game indicated by the hearts on top of the screen.", font_inst, (255, 255, 255), 50, 400)
@@ -240,7 +240,7 @@ def play(speed):
         # --- Spawn obstacles ---
         if not is_game_over:
             spawn_timer += 1
-            if spawn_timer > 90:
+            if spawn_timer > 70:
                 obstacles.append(spawn_obstacle(speed))
                 spawn_timer = 0
 

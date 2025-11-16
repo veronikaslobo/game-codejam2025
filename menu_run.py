@@ -73,6 +73,7 @@ def print_text_center(text, font, color, y):
     screen.blit(img, rect)
 
 def show_game_over_screen(current_score):
+    global game_start_time
     """Block until user presses SPACE or closes the window."""
     while True:
         for event in pygame.event.get():
@@ -90,6 +91,7 @@ def show_game_over_screen(current_score):
 
         pygame.display.flip()
         clock.tick(FPS)
+
 
 
 def get_font(size):  # Returns Press-Start-2P in the desired size

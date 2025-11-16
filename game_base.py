@@ -78,7 +78,7 @@ def show_game_over_screen(current_score):
 
         screen.fill(BLACK)
         print_text('GAME OVER', font_big, WHITE, 130, 200)
-        print_text('SCORE: ' + str(current_score), font_big, WHITE, 130, 250)
+        print_text('SCORE: ' + str(current_score) + ' m', font_big, WHITE, 130, 250)
         print_text('PRESS SPACE TO PLAY AGAIN', font_big, WHITE, 40, 300)
 
         pygame.display.flip()
