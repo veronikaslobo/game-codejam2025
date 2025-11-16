@@ -96,20 +96,20 @@ class Player:
         self.width = 75
         self.height = 75
 
-        # Lane center x-positions
+        # x positions fro lane centers
         self.lane_positions = [LEFT_LANE_POSITION, MIDDLE_LANE_POSITION, RIGHT_LANE_POSITION]
         self.current_lane = 1
 
-        # Convert lane center to sprite top-left
+        # coords for player (spawned topleft)
         self.x_axis_position = self.lane_positions[self.current_lane] - self.width // 2
         self.y_axis_position = 8.7 * HEIGHT / 10
 
-        # Movement
+        # movement parameters
         self.slide_speed = 900   # increase for stronger sliding
         self.target_x = self.x_axis_position
         self.is_moving = False
 
-        # Load sprite
+        # dget img to draw
         image_path = "player/penguin_image1.png"
         if not os.path.exists(image_path):
             print(f"Error: Could not find {image_path}")
@@ -150,10 +150,10 @@ class Player:
 def player_move(penguin):
     keys = pygame.key.get_pressed()
 
-    # Right arrow → move to next lane
+    # right move
     if keys[pygame.K_RIGHT]:
         penguin.move_right()
 
-    # Left arrow → move to previous lane
+    # left move
     elif keys[pygame.K_LEFT]:
         penguin.move_left()
