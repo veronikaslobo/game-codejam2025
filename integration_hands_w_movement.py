@@ -229,11 +229,8 @@ def main():
 main()
 
 # to finish
-
-    cap.release()
-    cv2.destroyAllWindows()
-    pygame.quit() #might not need
-
+cap.release()
+cv2.destroyAllWindows()
 pygame.quit()
 
 
