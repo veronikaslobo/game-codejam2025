@@ -121,7 +121,7 @@ def play():
             # spawn obstacles
             spawn_timer += 1
             if spawn_timer > 100:
-                obstacles.append(spawn_obstacle())
+                obstacles.append(spawn_obstacle(GAME_SPEED))
                 spawn_timer = 0
 
             # update & draw obstacles
@@ -134,8 +134,16 @@ def play():
             # --- COLLISION CHECK (FIX THIS LINE TO MATCH YOUR FUNCTION SIGNATURE) ---
             # Example if your function expects (player_rect, obstacles):
             # if check_for_collision(player_obj.rect, obstacles):
-            if check_for_collision(player_obj, obstacles):  # <-- REPLACE WITH REAL ARGS
+            # inside play() loop, after updating obstacles
+            hit = False
+            for obs in obstacles:
+                if check_for_collision(player_obj, obs):
+                    hit = True
+                    break
+
+            if hit:
                 collisions += 1
+
 
             if collisions >= 3:
                 is_game_over = True
