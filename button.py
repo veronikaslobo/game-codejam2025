@@ -1,7 +1,7 @@
 import pygame
 
 pygame.init()
-main_font = pygame.font.SysFont("cambria", 50)
+main_font = pygame.font.SysFont("Lucida Sans", 50)
 
 class Button:
     def __init__(self, image, x_pos, y_pos, text_input):
