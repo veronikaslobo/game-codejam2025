@@ -220,6 +220,22 @@ def main():
                 peng.move_right()
             if event.key == pygame.K_LEFT:
                peng.move_left()
+            if event.type == PAUSE_EVENT:
+                print("PAUSE event fired")
+            if event.type == RESUME_EVENT:
+                print("RESUME event fired")
+            if event.type == LEFT_EVENT:
+                print("LEFT event fired")
+            if event.type == RIGHT_EVENT:
+                print("RIGHT event fired")
+
+       # the camera detection
+       ret, frame = cap.read()
+       if not ret:
+           continue
+       # Convert BGR → RGB cuz media pipe needs rgb
+       frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+       results = hands.process(frame_rgb)
 
        gesture = None
        # to show the lines on the hands
