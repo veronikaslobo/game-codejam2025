@@ -2,7 +2,6 @@ import pygame
 import numpy
 import math
 import os
-# import mediapipe as mp
 
 pygame.init()
 
@@ -16,68 +15,6 @@ fps = 60
 LEFT_LANE_POSITION = 155
 MIDDLE_LANE_POSITION = 400
 RIGHT_LANE_POSITION = 630
-
-# Class of our car (can be smt else, decide later)
-# class Player:
-#     def __init__(self):
-#         self.y_axis_position = 8.7 * HEIGHT / 10 # to see with the UI
-#         self.width = 75
-#         self.height = 75
-#         self.lane_width = WIDTH // 3
-#         self.current_lane = 1
-#         self.lane_positions = [LEFT_LANE_POSITION, MIDDLE_LANE_POSITION, RIGHT_LANE_POSITION]
-#         self.x_axis_position = self.lane_positions[self.current_lane]
-#         self.target_x = self.x_axis_position
-#         self.slide_speed = 600 # pixels/movement
-#         self.is_moving = False
-#
-#         image_path = "player/penguin_image1.png"
-#
-#         #Checks for filenotfound
-#         if not os.path.exists(image_path):
-#             print(f"Error: Could not find {image_path}")
-#             self.image = pygame.Surface((50, 50))
-#             self.image.fill((255, 0, 0))
-#         else:
-#             self.image = pygame.image.load(image_path).convert_alpha()
-#             self.image = pygame.transform.scale(self.image, (self.width, self.height))
-#
-#     # Drawing itself on the map
-#     def draw(self, surface):
-#         surface.blit(self.image, (int(self.x_axis_position), int(self.y_axis_position)))
-#
-#
-#
-#     def move_right(self):
-#         if self.current_lane < 2 and not self.is_moving:
-#             self.current_lane += 1
-#             self.target_x = self.lane_positions[self.current_lane]
-#             self.is_moving = True
-#
-#
-#     def move_left(self):
-#         if self.current_lane > 0:
-#             self.current_lane -= 1
-#             self.target_x = self.lane_positions[self.current_lane]
-#             self.is_moving = True
-#
-#     def update(self, dt):
-#         if self.is_moving:
-#             direction = self.target_x - self.x_axis_position
-#             move_step = self.slide_speed * dt
-#
-#             if abs(direction) <= move_step:
-#                 self.x_axis_position = self.target_x
-#                 self.is_moving = False
-#             else:
-#                 self.x_axis_position += move_step if direction > 0 else -move_step
-#
-#     # def accelerate(self):
-
-
-
-import pygame
-import os
 
 class Player:
     def __init__(self):
