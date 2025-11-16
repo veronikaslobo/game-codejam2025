@@ -118,7 +118,7 @@ def show_game_over_screen(current_score):
         pygame.display.flip()
         clock.tick(FPS)
 
-# instrcutions page for those who wanna see
+# instrcutions page for those who wanna see!
 
 def instructions():
     while True:
