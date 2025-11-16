@@ -133,7 +133,7 @@ def instructions():
         print_text("3. To move more than one lane keep pointing.", font_inst, (255, 255, 255), 50, 250)
         print_text("4. The same motion applies to move to the right.", font_inst, (255, 255, 255), 50, 300)
         print_text(" -Game Rules-", font_big, (51, 153, 255), 50, 350)
-        print_text("1. You have 3 lives in the game indicated my the hearts on top of the screen.", font_inst, (255, 255, 255), 50, 400)
+        print_text("1. You have 3 lives in the game indicated by the hearts on top of the screen.", font_inst, (255, 255, 255), 50, 400)
         print_text("2. Everytime you hit an obstacle it disappears and you continue playing.", font_inst, (255, 255, 255), 50, 450)
 
 
