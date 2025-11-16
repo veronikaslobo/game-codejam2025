@@ -27,11 +27,17 @@ glacier_img = pygame.transform.scale(glacier,TARGET_SIZE_O)
 glacier_puddle = pygame.image.load("images/glacier_puddle.png").convert_alpha()
 ice_puddle_img = pygame.transform.scale(glacier_puddle,TARGET_SIZE_O)
 
+snow = pygame.image.load("images/snow_pile.png").convert_alpha()
+snow_pile_img = pygame.transform.scale(snow,TARGET_SIZE_O)
+
+trees = pygame.image.load("images/trees.png").convert_alpha()
+trees_img = pygame.transform.scale(trees,TARGET_SIZE_O)
+
 moose = pygame.image.load("images/moose.png").convert_alpha()
 moose_img = pygame.transform.scale(moose,TARGET_SIZE_O)
 
 # obstacle images array
-obs_imgs = [glacier_img,ice_puddle_img,moose_img]
+obs_imgs = [glacier_img,ice_puddle_img,moose_img,snow_pile_img,trees_img, ice_puddle_img, glacier_img]
 
 #getting background image
 def get_background():
