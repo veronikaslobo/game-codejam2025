@@ -48,6 +48,7 @@ font_small = pygame.font.SysFont('Lucida Sans', 20)
 font_big = pygame.font.SysFont('Lucida Sans', 34)
 font_lives_big = pygame.font.SysFont('Lucida Sans', 50)
 font_inst = pygame.font.SysFont('Lucida Sans', 28)
+TITLE_FONT_PATH = "images/font.ttf" 
 
 # BACKGROUND
 bg = get_background()
@@ -59,7 +60,11 @@ LEFT_EVENT = pygame.USEREVENT + 3
 RIGHT_EVENT = pygame.USEREVENT + 4
 
 gesture_buffer = []
-BUFFER_FRAMES = 10
+BUFFER_FRAMES = 1
+
+def print_text(text, font, text_col, x, y):
+    img = font.render(text, True, text_col)
+    screen.blit(img, (x, y))
 
 def get_gesture(handLms):
     TH = mp.solutions.hands.HandLandmark
@@ -303,8 +308,16 @@ def level_select():
 
 # ------------------ MENU ------------------
 def menu():
+
+    title_font = pygame.font.Font(TITLE_FONT_PATH, 52)
+
     while True:
         screen.blit(menu_bg, (0, 0))
+
+        title_surface = title_font.render("SubZero Surfers", True, WHITE)
+        title_rect = title_surface.get_rect(center=(SCREEN_WIDTH // 2, 120))
+        screen.blit(title_surface, title_rect)
+
         MENU_MOUSE_POS = pygame.mouse.get_pos()
 
         PLAY_BUTTON = Button(image=BUTTON_IMG, x_pos=400, y_pos=200, text_input="PLAY")
