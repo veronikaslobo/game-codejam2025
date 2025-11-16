@@ -84,36 +84,3 @@ def player_move(penguin):
                 penguin.move_left()
     return False
 
-
-
-# main game
-#def main():
-#
- #   peng = Player()
-  #  game_over = False
-
-# closes the game if the user presses on X
-   # run = True
-
-
-#    while run:
- #       for event in pygame.event.get():
-  #          if event.type == pygame.QUIT:
-   #             run = False
-    #        if event.type == pygame.KEYDOWN:
-     #           if event.key == pygame.K_RIGHT:
-      #              peng.move_right()
-       #         if event.key == pygame.K_LEFT:
-        #            peng.move_left()
-
-#        peng.update()
-#        screen.fill((250,250,204))
-#        peng.draw(screen)
-#        pygame.display.flip()
-
-
-#main()
-
-#pygame.quit()
-
-
