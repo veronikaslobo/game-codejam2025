@@ -28,7 +28,7 @@ class Player:
         self.lane_positions = [LEFT_LANE_POSITION, MIDDLE_LANE_POSITION, RIGHT_LANE_POSITION]
         self.x_axis_position = self.lane_positions[self.current_lane]
         self.target_x = self.x_axis_position
-        self.slide_speed = 1000 # pixels/movement
+        self.slide_speed = 600 # pixels/movement
         self.is_moving = False
 
         image_path = "player/penguin_image1.png"
@@ -44,7 +44,7 @@ class Player:
 
     # Drawing itself on the map
     def draw(self, surface):
-        surface.blit(self.image, (self.x_axis_position, self.y_axis_position))
+        surface.blit(self.image, (int(self.x_axis_position), int(self.y_axis_position)))
 
 
 
@@ -61,13 +61,16 @@ class Player:
             self.target_x = self.lane_positions[self.current_lane]
             self.is_moving = True
 
-    def update(self):
-        self.x_axis_position += (self.target_x - self.x_axis_position) * self.slide_speed
+    def update(self, dt):
+        if self.is_moving:
+            direction = self.target_x - self.x_axis_position
+            move_step = self.slide_speed * dt
 
-        if abs(self.target_x - self.x_axis_position) < 0.5:
-            self.x_axis_position = self.target_x
-            self.is_moving = False
-
+            if abs(direction) <= move_step:
+                self.x_axis_position = self.target_x
+                self.is_moving = False
+            else:
+                self.x_axis_position += move_step if direction > 0 else -move_step
 
     # def accelerate(self):
 

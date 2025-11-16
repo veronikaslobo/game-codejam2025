@@ -100,7 +100,7 @@ def play():
 
     running = True
     while running:
-        clock.tick(FPS)
+        dt = clock.tick(FPS) /1000
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -115,7 +115,7 @@ def play():
 
             # adding the penguin movement
             player_move(penguin)
-            penguin.update()
+            penguin.update(dt)
             penguin.draw(screen)
 
             # generate obstacles
