@@ -96,7 +96,7 @@ def get_font(size):  # Returns Press-Start-2P in the desired size
     return pygame.font.Font("images/font.ttf", size)
 
 
-def play():
+def play(speed):
     global score, scroll, game_start_time
     game_start_time = pygame.time.get_ticks()
 

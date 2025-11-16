@@ -151,7 +151,7 @@ def instructions():
 
 
 # ------------------ GAME LOOP ------------------
-def play():
+def play(speed):
     score = 0
     scroll = 0
     spawn_timer = 0
@@ -215,7 +215,7 @@ def play():
                 running = False
 
         # --- Background scrolling ---
-        scroll = scroll_bg(screen, bg, scroll, 5)
+        scroll = scroll_bg(screen, bg, scroll, speed)
 
         # --- Update penguin ---
         penguin.update(dt)
@@ -274,10 +274,10 @@ def level_select():
         screen.fill((80, 180, 250))
         mouse_pos = pygame.mouse.get_pos()
 
-        print_text("SELECT LEVEL", font_big, WHITE, 280, 80)
+        print_text("SELECT LEVEL", font_big, WHITE, 310, 80)
 
-        EASY_BUTTON = Button(image=BUTTON_IMG, x_pos=400, y_pos=400, text_input="EASY")
-        MEDIUM_BUTTON = Button(image=BUTTON_IMG, x_pos=400, y_pos=400, text_input="MEDIUM")
+        EASY_BUTTON = Button(image=BUTTON_IMG, x_pos=400, y_pos=200, text_input="EASY")
+        MEDIUM_BUTTON = Button(image=BUTTON_IMG, x_pos=400, y_pos=300, text_input="MEDIUM")
         HARD_BUTTON = Button(image=BUTTON_IMG, x_pos=400, y_pos=400, text_input="HARD")
 
         buttons = [EASY_BUTTON, MEDIUM_BUTTON, HARD_BUTTON]
@@ -324,7 +324,7 @@ def menu():
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if PLAY_BUTTON.checkForInput(MENU_MOUSE_POS):
-                    play()
+                    level_select()
                 if INSTR_BUTTON.checkForInput(MENU_MOUSE_POS):
                     instructions()
                 if QUIT_BUTTON.checkForInput(MENU_MOUSE_POS):
