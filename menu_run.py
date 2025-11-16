@@ -88,7 +88,8 @@ def get_font(size):  # Returns Press-Start-2P in the desired size
 
 
 def play():
-    global score, scroll
+    global score, scroll, game_start_time
+    game_start_time = pygame.time.get_ticks()
 
     # initial state for a run
     score = 0
