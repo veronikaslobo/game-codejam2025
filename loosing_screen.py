@@ -2,9 +2,6 @@ import pygame
 from player import Player
 
 
-collide = 0
-
-
 class Obstacle:
     def __init__(self, image, x, y,speed):
         self.image = image
@@ -33,6 +30,6 @@ def check_for_collision(player, obstacle):
 
 
     if (player_right > obstacle_left and player_left < obstacle_right and player_bottom > obstacle_top and player_top < obstacle_bottom):
-        global.collide = + 1
+        return True
 
     # updates the collide variable

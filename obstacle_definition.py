@@ -35,6 +35,6 @@ def spawn_obstacle():
     image = random.choice(obs_imgs)
     x = random.choice(LANES) #NEED TO DEFINE X POSITIONS
     y = -image.get_height()
-    obstacle = Obstacle(image, x, y, GAME_SPEED)
+    obstacle = Obstacle(image, x, y, 5)
     return obstacle
 
