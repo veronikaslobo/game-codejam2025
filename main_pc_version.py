@@ -38,7 +38,7 @@ BG_IMAGE = pygame.transform.scale(BG_IMAGE, (SCREEN_WIDTH, SCREEN_HEIGHT))
 BG_HEIGHT = BG_IMAGE.get_height()
 
 BUTTON_IMG = pygame.image.load("images/button.png").convert()
-BUTTON_IMG = pygame.transform.scale(BUTTON_IMG, (350, 75))
+BUTTON_IMG = pygame.transform.scale(BUTTON_IMG, (440, 75))
 
 HEART_IMG = pygame.image.load("images/ice-heart.png").convert_alpha()
 HEART_IMG = pygame.transform.scale(HEART_IMG, (70, 70))  # adjust size if needed
@@ -47,8 +47,8 @@ HEART_IMG = pygame.transform.scale(HEART_IMG, (70, 70))  # adjust size if needed
 # FONTS
 font_small = pygame.font.SysFont('Lucida Sans', 20)
 font_big = pygame.font.SysFont('Lucida Sans', 34)
-font_lives_big = pygame.font.SysFont('Lucida Sans', 50)
-font_inst = pygame.font.SysFont('Lucida Sans', 28)
+font_lives_big = pygame.font.SysFont('Lucida Sans', 40)
+font_inst = pygame.font.SysFont('Lucida Sans', 18)
 TITLE_FONT_PATH = "images/font.ttf"
 
 # BACKGROUND
@@ -126,7 +126,7 @@ def instructions():
         mouse_pos = pygame.mouse.get_pos()
 
         # Display instructions text
-        print_text("INSTRUCTIONS", font_lives_big, (51, 153, 255), 250, 55)
+        print_text("INSTRUCTIONS", font_lives_big, (51, 153, 255), 230, 15)
         print_text(" -Movement-", font_big, (51, 153, 255), 50, 100)
         print_text("1. Move left or right using hand gestures only.", font_inst, (255, 255, 255), 50, 150)
         print_text("2. To move one lane to the left point ur index finger to the left and stop.", font_inst, (255, 255, 255), 50, 200)
@@ -301,9 +301,9 @@ def level_select():
                 if EASY_BUTTON.checkForInput(mouse_pos):
                     play(speed=5)
                 if MEDIUM_BUTTON.checkForInput(mouse_pos):
-                    play(speed=10)
+                    play(speed=13)
                 if HARD_BUTTON.checkForInput(mouse_pos):
-                    play(speed=15)
+                    play(speed=20)
 
         pygame.display.update()
 
@@ -321,9 +321,9 @@ def menu():
 
         MENU_MOUSE_POS = pygame.mouse.get_pos()
 
-        PLAY_BUTTON = Button(image=BUTTON_IMG, x_pos=400, y_pos=200, text_input="PLAY")
-        INSTR_BUTTON = Button(image=BUTTON_IMG, x_pos=400, y_pos=300, text_input="INSTRUCTIONS")
-        QUIT_BUTTON = Button(image=BUTTON_IMG, x_pos=400, y_pos=400, text_input="QUIT")
+        PLAY_BUTTON = Button(image=BUTTON_IMG, x_pos=400, y_pos=250, text_input="PLAY")
+        INSTR_BUTTON = Button(image=BUTTON_IMG, x_pos=400, y_pos=350, text_input="INSTRUCTIONS")
+        QUIT_BUTTON = Button(image=BUTTON_IMG, x_pos=400, y_pos=450, text_input="QUIT")
 
         buttons = [PLAY_BUTTON, INSTR_BUTTON, QUIT_BUTTON]
 
