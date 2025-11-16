@@ -145,6 +145,9 @@ def play():
             if is_game_over:
                 survival_time = (pygame.time.get_ticks() - game_start_time) / 1000.0 #millisecodns divided to get seconds
                 score = int(survival_time * 15) # Constant can be changed
+                game_start_time = pygame.time.get_ticks()
+
+
 
             # Remove off-screen obstacles
             obstacles = [obs for obs in obstacles if obs.rect.top <= SCREEN_HEIGHT]
