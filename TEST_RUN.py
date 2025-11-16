@@ -276,6 +276,9 @@ def menu():
         PLAY_BUTTON = Button(image=BUTTON_IMG, x_pos=400, y_pos=200, text_input="PLAY")
         INSTR_BUTTON = Button(image=BUTTON_IMG, x_pos=400, y_pos=300, text_input="INSTRUCTIONS")
         QUIT_BUTTON = Button(image=BUTTON_IMG, x_pos=400, y_pos=400, text_input="QUIT")
+        EASY_BUTTON = Button(image = BUTTON_IMG, x_pos=400, y_pos=400, text_input="EASY")
+        MEDIUM_BUTTON = Button(image=BUTTON_IMG, x_pos=400, y_pos=400, text_input="MEDIUM")
+        HARD_BUTTON = Button(image=BUTTON_IMG, x_pos=400, y_pos=400, text_input="HARD")
 
         buttons = [PLAY_BUTTON, INSTR_BUTTON, QUIT_BUTTON]
 
