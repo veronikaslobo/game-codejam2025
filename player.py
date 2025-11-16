@@ -13,9 +13,9 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Pygame Movement")
 timer = pygame.time.Clock()
 fps = 60
-LEFT_LANE_POSITION = 140
-MIDDLE_LANE_POSITION = 350
-RIGHT_LANE_POSITION = 600
+LEFT_LANE_POSITION = 155
+MIDDLE_LANE_POSITION = 400
+RIGHT_LANE_POSITION = 630
 
 # Class of our car (can be smt else, decide later)
 # class Player:
@@ -73,19 +73,7 @@ RIGHT_LANE_POSITION = 600
 #                 self.x_axis_position += move_step if direction > 0 else -move_step
 #
 #     # def accelerate(self):
-#
-#
-#
-# def player_move(penguin):
-#     for event in pygame.event.get():
-#         if event.type == pygame.QUIT:
-#             return True
-#         if event.type == pygame.KEYDOWN:
-#             if event.key == pygame.K_RIGHT:
-#                 penguin.move_right()
-#             if event.key == pygame.K_LEFT:
-#                 penguin.move_left()
-#     return False
+
 
 
 import pygame
