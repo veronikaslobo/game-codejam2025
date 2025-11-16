@@ -144,6 +144,10 @@ def play():
             if collisions >= 3:
                 is_game_over = True
 
+            if is_game_over:
+                survival_time = (pygame.time.get_ticks() - game_start_time) / 1000.0 #millisecodns divided to get seconds
+                score = survival_time * 15 # Constant can be changed
+
         else:
             # show game over screen, wait for space
             show_game_over_screen(score)
