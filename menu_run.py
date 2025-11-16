@@ -5,8 +5,6 @@ import threading
 import sys
 import math
 import time
-import mediapipe as mp
-import cv2
 
 from button import Button
 from combined_game_environment import Obstacle, spawn_obstacle, obs_imgs, LANES, scroll_bg, get_background
@@ -90,58 +88,10 @@ def show_game_over_screen(current_score):
 def get_font(size):  # Returns Press-Start-2P in the desired size
     return pygame.font.Font("images/font.ttf", size)
 
-#harini added
-# ----- GESTURE EVENTS -----
-PAUSE_EVENT = pygame.USEREVENT + 1
-RESUME_EVENT = pygame.USEREVENT + 2
-LEFT_EVENT = pygame.USEREVENT + 3
-RIGHT_EVENT = pygame.USEREVENT + 4
-
-# Gesture buffer
-gesture_buffer = []
-BUFFER_FRAMES = 10
-
-def get_gesture(handLms):
-    TH = mp.solutions.hands.HandLandmark
-    tips = [handLms.landmark[i] for i in [
-        TH.THUMB_TIP, TH.INDEX_FINGER_TIP, TH.MIDDLE_FINGER_TIP, TH.RING_FINGER_TIP, TH.PINKY_TIP
-    ]]
-    wrist = handLms.landmark[TH.WRIST]
-    index_tip = tips[1]
-
-    THRESH = 0.12
-    if index_tip.x < wrist.x - THRESH:
-        return "left"
-    if index_tip.x > wrist.x + THRESH:
-        return "right"
-    return None
-
-def smooth_gesture(g):
-    global gesture_buffer
-    if g is None:
-        gesture_buffer = []
-        return None
-    gesture_buffer.append(g)
-    if len(gesture_buffer) > BUFFER_FRAMES:
-        gesture_buffer.pop(0)
-    if len(gesture_buffer) == BUFFER_FRAMES and len(set(gesture_buffer)) == 1:
-        gesture_buffer.clear()
-        return g
-    return None
-#harini added end
-
 
 def play():
     global score, scroll, game_start_time
     game_start_time = pygame.time.get_ticks()
-
-    #harini added start
-    mp_draw = mp.solutions.drawing_utils
-    mp_hands = mp.solutions.hands
-    hands = mp_hands.Hands(max_num_hands=1)
-    cap = cv2.VideoCapture(0)
-
-    #harini added end
 
     # initial state for a run
     score = 0
@@ -155,47 +105,6 @@ def play():
     running = True
     while running:
         dt = clock.tick(FPS) /1000
-
-
-        ##HARINI ADDED START
-        # Handle keyboard + gesture events
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                sys.exit()
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT:
-                    penguin.move_left()
-                elif event.key == pygame.K_RIGHT:
-                    penguin.move_right()
-            if event.type == LEFT_EVENT:
-                penguin.move_left()
-            elif event.type == RIGHT_EVENT:
-                penguin.move_right()
-
-        # Camera detection
-        ret, frame = cap.read()
-        if ret:
-            frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-            results = hands.process(frame_rgb)
-
-            gesture = None
-            if results.multi_hand_landmarks:
-                for hand_landmarks in results.multi_hand_landmarks:
-                    mp_draw.draw_landmarks(frame, hand_landmarks, mp_hands.HAND_CONNECTIONS)
-                gesture = smooth_gesture(get_gesture(results.multi_hand_landmarks[0]))
-
-            if gesture == "left":
-                pygame.event.post(pygame.event.Event(LEFT_EVENT))
-            elif gesture == "right":
-                pygame.event.post(pygame.event.Event(RIGHT_EVENT))
-
-            # optional: show camera feed
-            cv2.imshow("Gesture Camera", frame)
-            if cv2.waitKey(1) & 0xFF == ord('q'):
-                running = False
-
-        ## HARINI ADDED END
 
         if damage_cooldown > 0:
             damage_cooldown -= dt
@@ -245,11 +154,6 @@ def play():
                 survival_time = (pygame.time.get_ticks() - game_start_time) / 1000.0 #millisecodns divided to get seconds
                 score = int(survival_time * 15) # Constant can be changed
                 game_start_time = pygame.time.get_ticks()
-
-                #harini added start
-                cap.release()
-                cv2.destroyAllWindows()
-                #harini added end
 
 
 
