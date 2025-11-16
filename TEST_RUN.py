@@ -235,7 +235,7 @@ def play(speed):
         if not is_game_over:
             spawn_timer += 1
             if spawn_timer > 90:
-                obstacles.append(spawn_obstacle(5))
+                obstacles.append(spawn_obstacle(speed))
                 spawn_timer = 0
 
             for obs in obstacles[:]:
@@ -274,7 +274,7 @@ def level_select():
         screen.fill((80, 180, 250))
         mouse_pos = pygame.mouse.get_pos()
 
-        print_text("SELECT LEVEL", font_big, WHITE, 310, 80)
+        print_text("SELECT LEVEL", font_big, WHITE, 300, 80)
 
         EASY_BUTTON = Button(image=BUTTON_IMG, x_pos=400, y_pos=200, text_input="EASY")
         MEDIUM_BUTTON = Button(image=BUTTON_IMG, x_pos=400, y_pos=300, text_input="MEDIUM")
@@ -294,7 +294,7 @@ def level_select():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if EASY_BUTTON.checkForInput(mouse_pos):
                     play(speed=5)
-                if MED_BUTTON.checkForInput(mouse_pos):
+                if MEDIUM_BUTTON.checkForInput(mouse_pos):
                     play(speed=10)
                 if HARD_BUTTON.checkForInput(mouse_pos):
                     play(speed=15)
