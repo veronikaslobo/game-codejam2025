@@ -7,11 +7,14 @@ import math
 import time
 
 from button import Button
-from obstacle_definition import Obstacle, spawn_obstacle, obs_imgs, LANES
+from combined_game_environment import Obstacle, spawn_obstacle, obs_imgs, LANES
 from loosing_screen import check_for_collision
 
 pygame.init()
 clock = pygame.time.Clock()
+
+game_start_time = 0
+survival_time = 0
 
 # CONSTANTS
 SCREEN_WIDTH, SCREEN_HEIGHT = 800, 600
@@ -88,7 +91,7 @@ def get_font(size):  # Returns Press-Start-2P in the desired size
 
 
 def play():
-    global score, scroll
+    global score, scroll, game_start_time, survival_time
 
     # initial state for a run
     score = 0
@@ -99,10 +102,11 @@ def play():
     is_game_over = False
 
     # TODO: create your player object here
-    # e.g. player_obj = player.Player(...)
+    player_obj = player.Player()
 
     running = True
     while running:
+        game_start_time = pygame.time.get_ticks()
         clock.tick(FPS)
 
         for event in pygame.event.get():
@@ -134,11 +138,15 @@ def play():
             # --- COLLISION CHECK (FIX THIS LINE TO MATCH YOUR FUNCTION SIGNATURE) ---
             # Example if your function expects (player_rect, obstacles):
             # if check_for_collision(player_obj.rect, obstacles):
-            if check_for_collision():  # <-- REPLACE WITH REAL ARGS
+            if check_for_collision(player_obj, obstacles):  # <-- REPLACE WITH REAL ARGS
                 collisions += 1
 
             if collisions >= 3:
                 is_game_over = True
+
+            if is_game_over:
+                survival_time = (pygame.time.get_ticks() - game_start_time) / 1000.0 #millisecodns divided to get seconds
+                score = survival_time * 15 # Constant can be changed
 
         else:
             # show game over screen, wait for space
