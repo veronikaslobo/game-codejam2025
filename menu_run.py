@@ -77,9 +77,9 @@ def show_game_over_screen(current_score):
                 return  # return to caller, which will reset the game
 
         screen.fill(BLACK)
-        print_text('GAME OVER', font_big, WHITE, 130, 200)
-        print_text('SCORE: ' + str(current_score) + ' m', font_big, WHITE, 130, 250)
-        print_text('PRESS SPACE TO PLAY AGAIN', font_big, WHITE, 40, 300)
+        print_text('GAME OVER', font_big, WHITE, 324, 200)
+        print_text('SCORE: ' + str(current_score) + ' m', font_big, WHITE, 320, 250)
+        print_text('PRESS SPACE TO PLAY AGAIN', font_big, WHITE, 230, 300)
 
         pygame.display.flip()
         clock.tick(FPS)
