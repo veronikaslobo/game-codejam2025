@@ -91,7 +91,7 @@ def get_font(size):  # Returns Press-Start-2P in the desired size
 
 
 def play():
-    global score, scroll
+    global score, scroll, game_start_time, survival_time
 
     # initial state for a run
     score = 0
