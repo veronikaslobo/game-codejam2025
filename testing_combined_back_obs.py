@@ -31,39 +31,40 @@ penguin = Player()
 
 
 #running the game
-running = True
-while running:
-    # clock and timer
-    clock.tick(FPS)
-    spawn_timer += 1
+def main():
+    running = True
+    while running:
+        # clock and timer
+        clock.tick(FPS)
+        spawn_timer += 1
 
-    # Did the user click the window close button?
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
+        # Did the user click the window close button?
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
 
-    # Fill background
-    scroll = scroll_bg(screen, bg, scroll, GAME_SPEED)
+        # Fill background
+        scroll = scroll_bg(screen, bg, scroll, GAME_SPEED)
 
-    # adding the penguin movement
-    player_move(penguin)
-    penguin.update()
-    penguin.draw(screen)
+        # adding the penguin movement
+        player_move(penguin)
+        penguin.update()
+        penguin.draw(screen)
 
-    # generate obstacles
-    if spawn_timer > 90:
-        obstacles.append(spawn_obstacle(GAME_SPEED))
-        spawn_timer = 0
-        # Update and draw obstacles
-    for obs in obstacles:
-        obs.update()
-        obs.draw(screen)
-        # Remove off-screen obstacles
-    obstacles = [obs for obs in obstacles if obs.rect.top <= SCREEN_HEIGHT]
+        # generate obstacles
+        if spawn_timer > 90:
+            obstacles.append(spawn_obstacle(GAME_SPEED))
+            spawn_timer = 0
+            # Update and draw obstacles
+        for obs in obstacles:
+            obs.update()
+            obs.draw(screen)
+            # Remove off-screen obstacles
+        obstacles = [obs for obs in obstacles if obs.rect.top <= SCREEN_HEIGHT]
 
-    # Flip the display
-    pygame.display.flip()
+        # Flip the display
+        pygame.display.flip()
 
-# Done! Time to quit.
-pygame.quit()
+    # Done! Time to quit.
+    pygame.quit()
 
