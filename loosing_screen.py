@@ -2,6 +2,9 @@ import pygame
 from player import Player
 
 
+collide = 0
+
+
 class Obstacle:
     def __init__(self, image, x, y,speed):
         self.image = image
