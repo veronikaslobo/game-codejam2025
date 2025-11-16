@@ -60,7 +60,7 @@ LEFT_EVENT = pygame.USEREVENT + 3
 RIGHT_EVENT = pygame.USEREVENT + 4
 
 gesture_buffer = []
-BUFFER_FRAMES = 10
+BUFFER_FRAMES = 1
 
 def print_text(text, font, text_col, x, y):
     img = font.render(text, True, text_col)
