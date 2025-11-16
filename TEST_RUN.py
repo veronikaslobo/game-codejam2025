@@ -21,6 +21,7 @@ FPS = 60
 WHITE  = (255, 255, 255)
 BLACK  = (0, 0, 0)
 RED = (255, 0, 0)
+BLUE   = (189, 228, 255)
 
 # Pygame objects
 clock = pygame.time.Clock()
@@ -114,23 +115,23 @@ def show_game_over_screen(current_score):
 
 def instructions():
     while True:
-        screen.fill((50, 150, 255))  # light blue background
+        screen.fill(BLUE)  # light blue background
         mouse_pos = pygame.mouse.get_pos()
 
         # Display instructions text
-        print_text("INSTRUCTIONS", font_lives_big, (255, 255, 255), 250, 50)
-        print_text("1. ____Movement____", font_small, (255, 255, 255), 50, 150)
-        print_text("2. Move left or right using hand gestures only", font_big, (255, 255, 255), 50, 200)
-        print_text("3. To move one lane to the left point ur index finger to the left and stop", font_small, (255, 255, 255), 50, 250)
-        print_text("4. To move more than one lane keep pointing", font_small, (255, 255, 255), 50, 300)
-        print_text("5. The same motion applies to move to the right", font_small, (255, 255, 255), 50, 350)
-        print_text("6. ----game rules----", font_big, (255, 255, 255), 50, 400)
-        print_text("7. You have 3 lives in the game indicated my the hearts on top of the screen", font_small, (255, 255, 255), 50, 450)
-        print_text("8. Everytime you hit an obstacle it disappears and you continue playing", font_small, (255, 255, 255), 50, 500)
-        print_text("Press SPACE to start the game", font_small, (255, 255, 255), 50, 550)
+        print_text("INSTRUCTIONS", font_lives_big, (255, 209, 28), 250, 50)
+        print_text("1. ____Movement____", font_big, (255, 209, 28), 50, 100)
+        print_text("2. Move left or right using hand gestures only", font_small, (255, 255, 255), 50, 150)
+        print_text("3. To move one lane to the left point ur index finger to the left and stop", font_small, (255, 255, 255), 50, 200)
+        print_text("4. To move more than one lane keep pointing", font_small, (255, 255, 255), 50, 250)
+        print_text("5. The same motion applies to move to the right", font_small, (255, 255, 255), 50, 300)
+        print_text("6. ----game rules----", font_big, (255, 209, 28), 50, 350)
+        print_text("7. You have 3 lives in the game indicated my the hearts on top of the screen", font_small, (255, 255, 255), 50, 400)
+        print_text("8. Everytime you hit an obstacle it disappears and you continue playing", font_small, (255, 255, 255), 50, 450)
+
 
         # Back button (optional)
-        BACK_BUTTON = Button(image=BUTTON_IMG, x_pos=400, y_pos=450, text_input="BACK")
+        BACK_BUTTON = Button(image=BUTTON_IMG, x_pos=400, y_pos=550, text_input="BACK")
         BACK_BUTTON.changeColor(mouse_pos)
         BACK_BUTTON.update(screen)
 
