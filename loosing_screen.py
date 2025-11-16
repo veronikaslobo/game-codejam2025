@@ -23,8 +23,8 @@ class Obstacle:
 def check_for_collision(player, obstacle):
     player_left = player.x_axis_position
     player_right = player.x_axis_position + player.width
-    player_bottom = player.y
-    player_top = player.y + player.height
+    player_bottom = player.y_axis_position
+    player_top = player.y_axis_position + player.height
 
     obstacle_left = obstacle.rect.x
     obstacle_right = obstacle.rect.x + obstacle.width

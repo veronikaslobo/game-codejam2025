@@ -7,7 +7,7 @@ import math
 import time
 
 from button import Button
-from obstacle_definition import Obstacle, spawn_obstacle, obs_imgs, LANES
+from combined_game_environment import Obstacle, spawn_obstacle, obs_imgs, LANES
 from loosing_screen import check_for_collision
 
 pygame.init()
@@ -102,7 +102,7 @@ def play():
     is_game_over = False
 
     # TODO: create your player object here
-    # e.g. player_obj = player.Player(...)
+    player_obj = player.Player()
 
     running = True
     while running:
@@ -138,7 +138,7 @@ def play():
             # --- COLLISION CHECK (FIX THIS LINE TO MATCH YOUR FUNCTION SIGNATURE) ---
             # Example if your function expects (player_rect, obstacles):
             # if check_for_collision(player_obj.rect, obstacles):
-            if check_for_collision():  # <-- REPLACE WITH REAL ARGS
+            if check_for_collision(player_obj, obstacles):  # <-- REPLACE WITH REAL ARGS
                 collisions += 1
 
             if collisions >= 3:
